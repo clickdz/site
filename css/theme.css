@@ -1,4 +1,361 @@
+/* ========================================================================
+   Component: Navbar
+ ========================================================================== */
 .uk-navbar {
-    background: #4f5157;
-    color: #ffffff;
+  background: #4f5157;
+  color: #ffffff;
+}
+/*
+ * Micro clearfix
+ */
+.uk-navbar:before,
+.uk-navbar:after {
+  content: "";
+  display: table;
+}
+.uk-navbar:after {
+  clear: both;
+}
+/* Sub-object: `uk-navbar-nav`
+ ========================================================================== */
+.uk-navbar-nav {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  float: left;
+}
+/*
+ * 1. Create position context for dropdowns
+ */
+.uk-navbar-nav > li {
+  float: left;
+  /* 1 */
+  position: relative;
+}
+/*
+ * 1. Dimensions
+ * 2. Style
+ */
+.uk-navbar-nav > li > a {
+  display: block;
+  box-sizing: border-box;
+  text-decoration: none;
+  /* 1 */
+  height: 90px;
+  padding: 0 25px;
+  line-height: 90px;
+  /* 2 */
+  color: #adadae;
+  font-size: 15px;
+  font-family: 'Roboto', Arial, sans-serif;
+  font-weight: 300;
+}
+/* Appear not as link */
+.uk-navbar-nav > li > a[href='#'] {
+  cursor: text;
+}
+/*
+ * Hover
+ * 1. Apply hover style also to focus state
+ * 2. Also apply if dropdown is opened
+ * 3. Remove default focus style
+ */
+.uk-navbar-nav > li:hover > a,
+.uk-navbar-nav > li > a:focus,
+.uk-navbar-nav > li.uk-open > a {
+  background-color: rgba(0, 0, 0, 0);
+  color: #ffffff;
+  /* 3 */
+  outline: none;
+}
+/* OnClick */
+.uk-navbar-nav > li > a:active {
+  background-color: rgba(0, 0, 0, 0);
+  color: #ffffff;
+}
+/* Active */
+.uk-navbar-nav > li.uk-active > a {
+  background-color: rgba(0, 0, 0, 0);
+  color: #5cd1df;
+}
+/* Sub-objects: `uk-navbar-nav-subtitle`
+ ========================================================================== */
+.uk-navbar-nav .uk-navbar-nav-subtitle {
+  line-height: 78px;
+}
+.uk-navbar-nav-subtitle > div {
+  margin-top: -30.5px;
+  font-size: 10px;
+  line-height: 12px;
+}
+/* Sub-objects: `uk-navbar-content`, `uk-navbar-brand`, `uk-navbar-toggle`
+ ========================================================================== */
+/*
+ * Imitate navbar items
+ */
+.uk-navbar-content,
+.uk-navbar-brand,
+.uk-navbar-toggle {
+  box-sizing: border-box;
+  display: block;
+  height: 90px;
+  padding: 0 25px;
+  float: left;
+}
+/*
+ * Helper to center all child elements vertically
+ */
+.uk-navbar-content:before,
+.uk-navbar-brand:before,
+.uk-navbar-toggle:before {
+  content: '';
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+}
+/* Sub-objects: `uk-navbar-content`
+ ========================================================================== */
+/*
+ * Better sibling spacing
+ */
+.uk-navbar-content + .uk-navbar-content:not(.uk-navbar-center) {
+  padding-left: 0;
+}
+/*
+ * Link colors
+ */
+.uk-navbar-content > a:not([class]) {
+  color: #5cd1df;
+}
+.uk-navbar-content > a:not([class]):hover {
+  color: #ffffff;
+}
+/* Sub-objects: `uk-navbar-brand`
+ ========================================================================== */
+.uk-navbar-brand {
+  font-size: 20px;
+  color: #ffffff;
+  text-decoration: none;
+}
+/*
+ * 1. Apply hover style also to focus state
+ * 2. Remove default focus style
+ */
+.uk-navbar-brand:hover,
+.uk-navbar-brand:focus {
+  color: #ffffff;
+  text-decoration: none;
+  /* 2 */
+  outline: none;
+}
+/* Sub-object: `uk-navbar-toggle`
+ ========================================================================== */
+.uk-navbar-toggle {
+  font-size: 13px;
+  color: #ffffff;
+  text-decoration: none;
+}
+/*
+ * 1. Apply hover style also to focus state
+ * 2. Remove default focus style
+ */
+.uk-navbar-toggle:hover,
+.uk-navbar-toggle:focus {
+  color: #adadae;
+  text-decoration: none;
+  /* 2 */
+  outline: none;
+}
+/*
+ * 1. Center icon vertically
+ */
+.uk-navbar-toggle:after {
+  content: '\e903';
+  font-family: FontAwesome;
+  /* 1 */
+  vertical-align: middle;
+}
+.uk-navbar-toggle-alt:after {
+  content: "\f002";
+}
+/* Sub-object: `uk-navbar-center`
+ ========================================================================== */
+/*
+ * The element with this class needs to be last child in the navbar
+ * 1. This hack is needed because other float elements shift centered text
+ */
+.uk-navbar-center {
+  float: none;
+  text-align: center;
+  /* 1 */
+  max-width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+}
+/* Sub-object: `uk-navbar-flip`
+ ========================================================================== */
+.uk-navbar-flip {
+  float: right;
+}
+.uk-navbar .uk-button {
+  box-shadow: none !important;
+}
+.uk-navbar-brand {
+  line-height: 90px;
+  font-weight: normal;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+}
+.uk-navbar-toggle::after {
+  font-family: 'Monday';
+}
+/* ========================================================================
+   Component: Subnav
+ ========================================================================== */
+/*
+ * 1. Gutter
+ * 2. Remove default list style
+ */
+.uk-subnav {
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+  /* 1 */
+  margin-left: -20px;
+  margin-top: -20px;
+  /* 2 */
+  padding: 0;
+  list-style: none;
+}
+/*
+ * 1. Space is allocated solely based on content dimensions
+ * 2. Horizontal gutter is using `padding` so `uk-width-*` classes can be applied
+ * 3. Create position context for dropdowns
+ */
+.uk-subnav > * {
+  /* 1 */
+  -ms-flex: none;
+  -webkit-flex: none;
+  flex: none;
+  /* 2 */
+  padding-left: 20px;
+  margin-top: 20px;
+  /* 3 */
+  position: relative;
+}
+/*
+ * DEPRECATED IE9 Support
+ */
+.uk-subnav:before,
+.uk-subnav:after {
+  content: "";
+  display: block;
+  overflow: hidden;
+}
+.uk-subnav:after {
+  clear: both;
+}
+.uk-subnav > * {
+  float: left;
+}
+/** Footer */
+.tm-footer {
+  box-sizing: border-box;
+  padding: 15px 0;
+  background: #414349;
+  color: #adadae;
+  font-size: 14px;
+}
+.tm-footer a {
+  color: #adadae;
+}
+.tm-footer a:hover {
+  color: #ffffff;
+}
+/*
+ * To-top scroller
+ */
+.tm-footer > .uk-container {
+  position: relative;
+}
+.tm-totop-scroller {
+  display: block;
+  position: absolute;
+  top: 50%;
+  right: 30px;
+  width: 15px;
+  height: 15px;
+  transform: translateY(-50%);
+}
+.tm-totop-scroller:before {
+  content: '\e604';
+  display: block;
+  height: 15px;
+  font-family: 'Monday';
+  font-size: 7px;
+  line-height: 15px;
+  color: #adadae;
+}
+.tm-totop-scroller:focus {
+  text-decoration: none;
+}
+/* Phone only */
+@media (max-width: 767px) {
+  .tm-footer > .uk-container > .uk-flex {
+    -ms-flex-direction: column;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+  }
+  .tm-footer-left + .tm-footer-right,
+  .tm-footer-left + .tm-totop-scroller + .tm-footer-right {
+    margin-top: 10px;
+  }
+}
+/* Tablet and bigger */
+@media (min-width: 768px) {
+  .tm-totop-scroller + .tm-footer-right {
+    padding-right: 75px;
+  }
+}
+.tm-overlay-icon:before {
+  content: "\f04b";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 30px;
+  height: 30px;
+  margin-top: -15px;
+  margin-left: -15px;
+  font-size: 30px;
+  line-height: 1;
+  font-family: FontAwesome;
+  text-align: center;
+  color: #ffffff;
+}
+/*
+ * Large Margin
+ */
+.tm-margin-xlarge {
+  margin-bottom: 50px;
+}
+* + .tm-margin-xlarge {
+  margin-top: 50px;
+}
+.tm-margin-xlarge-top {
+  margin-top: 50px !important;
+}
+.tm-margin-xlarge-bottom {
+  margin-bottom: 50px !important;
+}
+.tm-margin-xlarge-left {
+  margin-left: 50px !important;
+}
+.tm-margin-xlarge-right {
+  margin-right: 50px !important;
 }
