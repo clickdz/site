@@ -26,11 +26,11 @@ CSS structure
 Typography
 =========================== */
 body {
-	background:#FFFFFF;
+	background:#E3E3E3;
     font-family: 'Roboto', sans-serif;
 	font-size:13px;
 	line-height:26px;
-	color:#838485;
+	color:#ffffff;
     padding: 0;
 }
 

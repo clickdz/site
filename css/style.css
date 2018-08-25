@@ -1938,11 +1938,11 @@ Responsive
         padding-top: 121px;
     }  
 	.home-container{
-		background-image: url(../images/home/city.png);
+		background-image: url(../images/home/homebg.png);
 		background-position: top center;
 		background-repeat: no-repeat;
-		padding-top: 240px;
-		padding-bottom: 330px;
+		padding-top: 200px;
+		padding-bottom: 300px;
 	}
     ul.feature-two .line{
         position: absolute;
